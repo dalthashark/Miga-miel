@@ -1,16 +1,33 @@
-# React + Vite
+# 🥐 Miga & Miel - Pastelería Artesanal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyecto integrador grupal desarrollado para el **Laboratorio #5** del curso Full Stack Developer Web - Seminario en **SENATI**. Una solución web interactiva, dinámica y moderna construida con React y Vite.
 
-Currently, two official plugins are available:
+## 📝 1. Contexto y Problemática
+En el sector gastronómico local, muchas pastelerías tradicionales carecen de una plataforma digital interactiva que permita lucir sus productos y captar pedidos especiales en tiempo real. **Miga & Miel** nace como una propuesta de solución para digitalizar la experiencia de compra de pastelería artesanal, facilitando la navegación de catálogos, pedidos personalizados por encargo y un contacto directo y fluido con el cliente sin recargas innecesarias de página.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🎨 2. Diseño UI/UX
+El diseño visual y la experiencia de navegación interactiva fueron prototipados previamente para validar la usabilidad de la interfaz.
+* **Pantallas principales (5):** Inicio, Nuestros Dulces (Catálogo), Por Encargo (Personalizados), Nuestra Historia y Contacto.
+* **Línea Gráfica:** Paleta de colores cálidos y tipografía elegante adaptada a la estética de repostería artesanal.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 3. Enlaces del Proyecto
+* 🎨 **Prototipo en Figma:** [Enlace a Figma](https://www.figma.com/design/ihXOr05xDBfs5O1dcYFIlP/Miga---Miel?node-id=0-1) *(Configurado para que cualquier persona con el enlace pueda ver)*
+* 📦 **Repositorio en GitHub:** [https://github.com](https://github.com)
+* 🌐 **Aplicación Desplegada (Vercel):** *[Insertar enlace de Vercel aquí al finalizar]*
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ 4. Tecnologías y Herramientas Utilizadas
+* **Frontend:** React (Vite)
+* **Diseño:** Figma
+* **Control de Versiones:** Git & GitHub (Estrategia colaborativa de Ramas)
+
+## 👥 5. Equipo de Desarrollo
+El proyecto fue realizado de forma equitativa mediante control de versiones colaborativo:
+* **Sebastián Mendoza** (Líder de Equipo)
+* *[Nombre de Integrante 2]*
+* *[Nombre de Integrante 3]*
+* *[Nombre de Integrante 4]*
+* *[Nombre de Integrante 5]*
