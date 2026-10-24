@@ -13,7 +13,7 @@ El diseño visual y la experiencia de navegación interactiva fueron prototipado
 ---
 
 ## 🚀 3. Enlaces del Proyecto
-* 🎨 **Prototipo en Figma:** [Enlace a Figma](https://www.figma.com/design/ihXOr05xDBfs5O1dcYFIlP/Miga---Miel?node-id=0-1) *(Configurado para que cualquier persona con el enlace pueda ver)*
+* 🎨 **Prototipo en Figma:** [Miga & Miel]([https://www.figma.com/design/ihXOr05xDBfs5O1dcYFIlP/Miga---Miel?node-id=0-1](https://www.figma.com/design/ihXOr05xDBfs5O1dcYFIlP/Miga---Miel?node-id=0-1&p=f&t=pZn0sK7ZGgc5b0Fc-0)) *(Configurado para que cualquier persona con el enlace pueda ver)*
 * 📦 **Repositorio en GitHub:** [https://github.com](https://github.com)
 * 🌐 **Aplicación Desplegada (Vercel):** *[Insertar enlace de Vercel aquí al finalizar]*
 
