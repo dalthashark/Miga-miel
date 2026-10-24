@@ -27,10 +27,9 @@ El diseño visual y la experiencia de navegación interactiva fueron prototipado
 ## 👥 5. Equipo de Desarrollo
 El proyecto fue realizado de forma equitativa mediante control de versiones colaborativo:
 * **Sebastián Mendoza** (Líder de Equipo)
-* *[Nombre de Integrante 2]*
-* *[Nombre de Integrante 3]*
-* *[Nombre de Integrante 4]*
-* *[Nombre de Integrante 5]*
+* **Levano Diego**
+* **Doriant Chanta**
+* **Joel Santivañez**
 
 ---
 
