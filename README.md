@@ -1,9 +1,9 @@
 # 🥐 Miga & Miel - Pastelería Artesanal
 
-Proyecto integrador grupal desarrollado para el **Laboratorio #5** del curso Full Stack Developer Web - Seminario en **SENATI**. Una solución web interactiva, dinámica y moderna construida con React para representar una pastelería artesanal.
+Proyecto integrador grupal desarrollado para el **Laboratorio #5** del curso Full Stack Developer Web - Seminario en **SENATI**. Una solución web interactiva, dinámica y moderna construida con React y enfocada en la experiencia del usuario para una pastelería artesanal.
 
 ## 📝 1. Contexto y Problemática
-En el sector gastronómico local, muchas pastelerías tradicionales carecen de una plataforma digital interactiva que permita lucir sus productos y captar pedidos especiales en tiempo real. **Miga & Miel** nace como propuesta tecnológica para modernizar esa experiencia y conectar mejor con clientes potenciales.
+En el sector gastronómico local, muchas pastelerías tradicionales carecen de una plataforma digital interactiva que permita lucir sus productos y captar pedidos especiales en tiempo real. **Miga & Miel** responde a esta necesidad con una web atractiva y funcional que conecta la marca con sus clientes.
 
 ## 🎨 2. Diseño UI/UX
 El diseño visual y la experiencia de navegación interactiva fueron prototipados previamente para validar la usabilidad de la interfaz.
@@ -15,7 +15,7 @@ El diseño visual y la experiencia de navegación interactiva fueron prototipado
 ## 🚀 3. Enlaces del Proyecto
 * 🎨 **Prototipo en Figma:** [Miga & Miel](https://www.figma.com/design/ihXOr05xDBfs5O1dcYFIlP/Miga---Miel?node-id=0-1)
 * 📦 **Repositorio en GitHub:** [https://github.com/dalthashark/Miga-miel](https://github.com/dalthashark/Miga-miel)
-* 🌐 **Aplicación Desplegada (Vercel):** *[Insertar enlace de Vercel aquí al finalizar]*
+* 🌐 **Aplicación Desplegada (Vercel):** [https://miga-miel-amber.vercel.app](https://miga-miel-amber.vercel.app)
 
 ---
 
