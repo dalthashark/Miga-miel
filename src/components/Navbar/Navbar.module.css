@@ -1,0 +1,251 @@
+.cabecera {
+  --crema: #faf7ef;
+  --tinta: #352f2c;
+  --terracota: #a64f53;
+  --linea: #e9e2d4;
+
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--crema);
+  border-bottom: 1px solid var(--linea);
+  text-align: left;
+  transition: box-shadow 300ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entrada {
+    animation: none;
+  }
+
+  .logo,
+  .enlace::after,
+  .indicador {
+    transition: none;
+  }
+
+  .logo:hover {
+    transform: none;
+  }
+}
+
+.aviso {
+  margin: 0;
+  padding: 8px 16px;
+  background: var(--terracota);
+  color: #fffaf4;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.barra {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+  box-sizing: border-box;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px clamp(24px, 5.6vw, 80px);
+}
+
+.logo {
+  display: inline-flex;
+  flex-direction: column;
+  justify-self: start;
+  color: var(--tinta);
+  text-decoration: none;
+}
+
+.marca {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 34px;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.lema {
+  margin-top: 4px;
+  margin-left: 22%;
+  align-self: flex-start;
+  color: #77716a;
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.navegacion ul {
+  display: flex;
+  gap: clamp(20px, 3vw, 40px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.enlace {
+  position: relative;
+  padding: 6px 0;
+  color: var(--tinta);
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+.enlace::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--terracota);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.enlace:hover,
+.activo {
+  color: var(--terracota);
+}
+
+.enlace:hover::after {
+  transform: scaleX(1);
+}
+
+.navegacion {
+  position: relative;
+}
+
+.indicador {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--terracota);
+  transition: transform 450ms cubic-bezier(0.22, 1, 0.36, 1),
+    width 450ms cubic-bezier(0.22, 1, 0.36, 1), opacity 300ms ease;
+}
+
+.logo {
+  transition: transform 250ms ease;
+}
+
+.logo:hover {
+  transform: scale(1.04);
+}
+
+.entrada {
+  animation: entrar 700ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: var(--retraso, 0ms);
+}
+
+@keyframes entrar {
+  from {
+    opacity: 0;
+    transform: translateY(-22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.conSombra {
+  box-shadow: 0 8px 24px rgba(53, 47, 44, 0.1);
+}
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  justify-self: end;
+  padding: 12px 22px;
+  border: 1px solid var(--terracota);
+  border-radius: 24px;
+  color: var(--terracota);
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  text-decoration: none;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.boton:hover {
+  background: var(--terracota);
+  color: #fffaf4;
+}
+
+.logo:focus-visible,
+.enlace:focus-visible,
+.boton:focus-visible {
+  outline: 3px solid var(--tinta);
+  outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .barra {
+    grid-template-columns: 1fr auto;
+    gap: 14px 20px;
+  }
+
+  .navegacion {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .navegacion::-webkit-scrollbar {
+    display: none;
+  }
+
+  .navegacion ul {
+    gap: 22px;
+  }
+
+  .enlace {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 520px) {
+  .cabecera {
+    position: static;
+  }
+
+  .barra {
+    padding-top: 14px;
+    padding-bottom: 10px;
+    gap: 10px 12px;
+  }
+
+  .marca {
+    font-size: 26px;
+  }
+
+  .lema {
+    font-size: 8px;
+  }
+
+  .navegacion ul {
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .enlace {
+    font-size: 11.5px;
+  }
+
+  .boton {
+    gap: 8px;
+    padding: 9px 14px;
+    font-size: 11px;
+  }
+}
