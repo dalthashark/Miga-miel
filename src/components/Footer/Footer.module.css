@@ -1,0 +1,150 @@
+.pie {
+  --crema: #faf7ef;
+  --tinta: #352f2c;
+  --suave: #77716a;
+  --terracota: #a64f53;
+
+  background: var(--crema);
+  text-align: left;
+}
+
+.contenido,
+.legal {
+  box-sizing: border-box;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-right: clamp(24px, 2.9vw, 42px);
+  padding-left: clamp(24px, 2.9vw, 42px);
+}
+
+.contenido {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: start;
+  gap: clamp(40px, 8vw, 120px);
+  padding-top: 64px;
+  padding-bottom: 32px;
+}
+
+.marca {
+  margin: 0;
+  color: var(--tinta);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(56px, 8vw, 92px);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.lema {
+  margin: 14px 0 0;
+  color: var(--suave);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 17px;
+  font-style: italic;
+}
+
+.columna {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.columna a {
+  color: var(--tinta);
+  font-size: 12px;
+  text-decoration: none;
+  transition: color 200ms ease, transform 200ms ease;
+}
+
+.columna a:hover {
+  color: var(--terracota);
+  transform: translateX(6px);
+}
+
+.instagram svg {
+  transition: transform 250ms ease;
+}
+
+.instagram:hover svg {
+  transform: scale(1.2) rotate(-6deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .columna a,
+  .instagram svg {
+    transition: none;
+  }
+
+  .columna a:hover,
+  .instagram:hover svg {
+    transform: none;
+  }
+}
+
+.titulo {
+  margin: 0 0 2px;
+  color: var(--terracota);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.instagram {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.instagram svg {
+  box-sizing: content-box;
+  padding: 3px;
+  color: var(--terracota);
+}
+
+.legal {
+  width: calc(100% - 2 * clamp(24px, 2.9vw, 42px));
+  padding-right: 0;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding-top: 18px;
+  padding-bottom: 22px;
+  border-top: 1px solid #e2d9c6;
+  color: var(--suave);
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+}
+
+.legal p {
+  margin: 0;
+}
+
+.legal ul {
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (max-width: 800px) {
+  .contenido {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px 24px;
+    padding-top: 48px;
+  }
+
+  .marcaBloque {
+    grid-column: 1 / -1;
+  }
+
+  .legal {
+    grid-template-columns: 1fr;
+    justify-items: start;
+    gap: 10px;
+  }
+}
