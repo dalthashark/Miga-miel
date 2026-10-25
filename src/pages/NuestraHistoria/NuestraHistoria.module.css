@@ -1,0 +1,581 @@
+.historia {
+  --crema: #faf7ef;
+  --tinta: #352f2c;
+  --suave: #77716a;
+  --terracota: #a64f53;
+  --terracota-hover: #8f3e42;
+  --salvia: #e9eddf;
+  --salvia-borde: #d7decd;
+  --borde-suave: #e9e2d4;
+  --rosa-empolvado: #f4e8e1;
+  --blanco-puro: #ffffff;
+
+  width: 100%;
+  color: var(--tinta);
+  background: var(--crema);
+  font-family: Georgia, 'Times New Roman', serif;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.historia *,
+.historia *::before,
+.historia *::after {
+  box-sizing: border-box;
+}
+
+/* Animaciones de revelado */
+.historia [data-revelar] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 700ms ease var(--retraso, 0ms),
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1) var(--retraso, 0ms);
+}
+
+.historia [data-revelar][data-visible] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .historia [data-revelar] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ==========================================================================
+   1. HERO
+   ========================================================================== */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  align-items: center;
+  gap: clamp(40px, 6vw, 84px);
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: clamp(48px, 6vw, 84px) clamp(24px, 5.6vw, 80px) clamp(56px, 7vw, 96px);
+}
+
+.heroContenido {
+  max-width: 540px;
+}
+
+.etiqueta {
+  margin: 0 0 20px;
+  color: var(--terracota);
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0 0 24px;
+  color: var(--tinta);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(40px, 4.4vw, 62px);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+}
+
+.heroDescripcion {
+  margin: 0 0 28px;
+  color: var(--suave);
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.firma {
+  margin: 0 0 16px;
+  color: var(--terracota);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: clamp(22px, 2.2vw, 28px);
+  letter-spacing: -0.01em;
+}
+
+.heroNota {
+  margin: 0;
+  color: var(--suave);
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+
+.heroImagenes {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 20px 32px 0;
+}
+
+.imagenArcoContenedor {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  aspect-ratio: 4 / 5;
+  border-radius: 220px 220px 18px 18px;
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(53, 47, 44, 0.12);
+  background: #ede6d8;
+}
+
+.imagenArco {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.imagenArcoContenedor:hover .imagenArco {
+  transform: scale(1.03);
+}
+
+.polaroidFlotante {
+  position: absolute;
+  bottom: 0px;
+  right: clamp(-10px, 1vw, 24px);
+  width: clamp(140px, 18vw, 200px);
+  aspect-ratio: 1;
+  background: var(--blanco-puro);
+  padding: 8px 8px 16px;
+  border-radius: 6px;
+  box-shadow: 0 16px 36px rgba(53, 47, 44, 0.18);
+  transform: rotate(4deg);
+  transition: transform 300ms ease, box-shadow 300ms ease;
+  z-index: 2;
+}
+
+.polaroidFlotante:hover {
+  transform: rotate(1deg) scale(1.04);
+  box-shadow: 0 20px 44px rgba(53, 47, 44, 0.24);
+}
+
+.imagenPolaroid {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   2. FRANJA SALVIA
+   ========================================================================== */
+.seccionSalvia {
+  width: 100%;
+  background: var(--salvia);
+  border-top: 1px solid var(--salvia-borde);
+  border-bottom: 1px solid var(--salvia-borde);
+}
+
+.contenedorSalvia {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: clamp(36px, 5.5vw, 80px);
+  align-items: center;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: clamp(56px, 6vw, 84px) clamp(24px, 5.6vw, 80px);
+}
+
+.etiquetaSecundaria {
+  margin: 0 0 18px;
+  color: var(--terracota);
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.salviaIzquierda h2 {
+  margin: 0;
+  color: var(--tinta);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(32px, 3.2vw, 44px);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.18;
+}
+
+.textoFilosofia {
+  margin: 0 0 24px;
+  color: #4a4540;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.cita {
+  margin: 0 0 14px;
+  padding: 0;
+  border: none;
+  color: var(--terracota);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: clamp(20px, 1.8vw, 24px);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+
+.pieCita {
+  margin: 0;
+  color: var(--suave);
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+/* ==========================================================================
+   3. INGREDIENTES SENCILLOS
+   ========================================================================== */
+.seccionIngredientes {
+  width: 100%;
+  background: var(--crema);
+  border-bottom: 1px solid var(--borde-suave);
+}
+
+.contenedorIngredientes {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(40px, 6vw, 84px);
+  align-items: center;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: clamp(64px, 7vw, 104px) clamp(24px, 5.6vw, 80px);
+}
+
+.ingredientesFotoCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.marcoFotoIngredientes {
+  width: 100%;
+  aspect-ratio: 4 / 3.4;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 16px 38px rgba(53, 47, 44, 0.1);
+  background: #ede6d8;
+}
+
+.fotoIngredientes {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 500ms ease;
+}
+
+.marcoFotoIngredientes:hover .fotoIngredientes {
+  transform: scale(1.025);
+}
+
+.pieFotoIngredientes {
+  margin: 14px 0 0;
+  color: var(--suave);
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+
+.ingredientesTextoCol h2 {
+  margin: 0 0 20px;
+  color: var(--tinta);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(32px, 3.4vw, 46px);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+.ingredientesDescripcion {
+  margin: 0 0 32px;
+  color: var(--suave);
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.listaIngredientes {
+  display: flex;
+  flex-direction: column;
+}
+
+.itemIngrediente {
+  padding: 18px 0;
+  border-top: 1px solid var(--borde-suave);
+}
+
+.itemIngrediente:last-child {
+  border-bottom: 1px solid var(--borde-suave);
+}
+
+.itemTitulo {
+  margin: 0 0 6px;
+  color: var(--tinta);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 19px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.itemDescripcion {
+  margin: 0;
+  color: var(--suave);
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   4. CADA RECETA TIENE SU RITMO
+   ========================================================================== */
+.seccionRitmo {
+  width: 100%;
+  background: #fffaf4;
+  border-bottom: 1px solid var(--borde-suave);
+}
+
+.contenedorRitmo {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: clamp(64px, 7vw, 104px) clamp(24px, 5.6vw, 80px);
+}
+
+.ritmoCabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--borde-suave);
+  margin-bottom: 40px;
+}
+
+.ritmoCabecera h2 {
+  margin: 0;
+  color: var(--tinta);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(32px, 3.4vw, 46px);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+
+.ritmoSubtexto {
+  max-width: 440px;
+  margin: 0;
+  color: var(--suave);
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.pasosGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(20px, 3vw, 36px);
+  margin-bottom: 40px;
+}
+
+.pasoCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.pasoNumero {
+  color: var(--terracota);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 26px;
+  margin-bottom: 14px;
+}
+
+.pasoTitulo {
+  margin: 0 0 10px;
+  color: var(--tinta);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.pasoDescripcion {
+  margin: 0;
+  color: var(--suave);
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.ritmoPie {
+  margin: 0;
+  color: var(--suave);
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+/* ==========================================================================
+   5. LOS MEJORES RECUERDOS (BLUSH)
+   ========================================================================== */
+.seccionRecuerdos {
+  width: 100%;
+  background: var(--rosa-empolvado);
+}
+
+.contenedorRecuerdos {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(40px, 6vw, 84px);
+  align-items: center;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: clamp(64px, 7vw, 104px) clamp(24px, 5.6vw, 80px);
+}
+
+.recuerdosImagenCol {
+  display: flex;
+  justify-content: center;
+}
+
+.recuerdosArco {
+  width: 100%;
+  max-width: 440px;
+  aspect-ratio: 4 / 3.8;
+  border-radius: 200px 200px 16px 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(53, 47, 44, 0.12);
+  background: #ede6d8;
+}
+
+.fotoRecuerdos {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.recuerdosArco:hover .fotoRecuerdos {
+  transform: scale(1.03);
+}
+
+.recuerdosTextoCol h2 {
+  margin: 0 0 20px;
+  color: var(--tinta);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(32px, 3.4vw, 46px);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+.recuerdosDescripcion {
+  margin: 0 0 28px;
+  color: #5a534d;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.recuerdosAccion {
+  margin-bottom: 24px;
+}
+
+.botonRecuerdos {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border: 1px solid var(--terracota);
+  border-radius: 30px;
+  background: transparent;
+  color: var(--terracota);
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 250ms ease;
+}
+
+.botonRecuerdos:hover {
+  background: var(--terracota);
+  color: #fffaf4;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(166, 79, 83, 0.25);
+}
+
+.recuerdosPie {
+  margin: 0;
+  color: var(--suave);
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .hero,
+  .contenedorSalvia,
+  .contenedorIngredientes,
+  .contenedorRecuerdos {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .heroImagenes {
+    order: -1;
+    padding: 0;
+  }
+
+  .imagenArcoContenedor,
+  .recuerdosArco {
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .salviaIzquierda h2 br,
+  .hero h1 br {
+    display: none;
+  }
+
+  .pasosGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 24px;
+  }
+
+  .ritmoCabecera {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 36px;
+  }
+
+  .pasosGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .polaroidFlotante {
+    right: 0;
+    bottom: -12px;
+    width: 130px;
+  }
+}
