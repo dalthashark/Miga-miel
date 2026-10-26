@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import styles from './Contacto.module.css'
 import ingredientes from '../../assets/pasteles/ingredientes.jpg'
 import { reproducirClic } from '../../utils/sonido.js'
+
+import { enviarConsulta } from '../../utils/emailjs.js'
 
 function Contacto() {
   const [formulario, setFormulario] = useState({
@@ -12,6 +14,9 @@ function Contacto() {
     aceptaPolitica: false,
   })
 
+  const envioEnCurso = useRef(false)
+  const [enviando, setEnviando] = useState(false)
+  const [errorEnvio, setErrorEnvio] = useState('')
   const [enviado, setEnviado] = useState(false)
   const [errores, setErrores] = useState({})
 
@@ -57,9 +62,11 @@ function Contacto() {
     }
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    if (envioEnCurso.current) return
     reproducirClic()
+    setErrorEnvio('')
 
     const nuevosErrores = {}
     if (!formulario.nombre.trim()) {
@@ -67,7 +74,7 @@ function Contacto() {
     }
     if (!formulario.correo.trim()) {
       nuevosErrores.correo = 'Por favor, indícanos tu correo electrónico'
-    } else if (!/\S+@\S+\.\S+/.test(formulario.correo)) {
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formulario.correo.trim())) {
       nuevosErrores.correo = 'Por favor, introduce un correo electrónico válido'
     }
     if (!formulario.mensaje.trim()) {
@@ -82,7 +89,18 @@ function Contacto() {
       return
     }
 
-    setEnviado(true)
+    envioEnCurso.current = true
+    setEnviando(true)
+    setErrores({})
+    try {
+      await enviarConsulta(formulario)
+      setEnviado(true)
+    } catch {
+      setErrorEnvio('No pudimos enviar tu consulta. Tus datos siguen aquí; inténtalo de nuevo en unos momentos.')
+    } finally {
+      envioEnCurso.current = false
+      setEnviando(false)
+    }
   }
 
   const reiniciarFormulario = () => {
@@ -93,6 +111,7 @@ function Contacto() {
       mensaje: '',
       aceptaPolitica: false,
     })
+    setErrorEnvio('')
     setEnviado(false)
     setErrores({})
   }
@@ -220,7 +239,8 @@ function Contacto() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} noValidate className={styles.formulario}>
+              <form onSubmit={handleSubmit} noValidate aria-busy={enviando} className={styles.formulario}>
+                <fieldset disabled={enviando} className={styles.camposFormulario}>
                 <div className={styles.filaDoble}>
                   <div className={styles.grupoCampo}>
                     <label htmlFor="nombre" className={styles.label}>
@@ -314,9 +334,13 @@ function Contacto() {
                   )}
                 </div>
 
+                </fieldset>
+                {errorEnvio && (
+                  <p role="alert" className={styles.errorTexto}>{errorEnvio}</p>
+                )}
                 <div className={styles.filaBoton}>
-                  <button type="submit" className={styles.botonEnviar}>
-                    Enviar mi consulta <span aria-hidden="true">↗</span>
+                  <button type="submit" disabled={enviando} className={styles.botonEnviar}>
+                    {enviando ? 'Enviando…' : 'Enviar mi consulta'} <span aria-hidden="true">↗</span>
                   </button>
                 </div>
 
