@@ -5,6 +5,7 @@ import Contacto from './pages/Contacto/Contacto.jsx'
 import Inicio from './pages/Inicio/Inicio.jsx'
 import NuestraHistoria from './pages/NuestraHistoria/NuestraHistoria.jsx'
 import NuestrosDulces from './pages/NuestrosDulces/NuestrosDulces.jsx'
+import PorEncargo from './pages/PorEncargo/PorEncargo.jsx'
 
 // Página en blanco temporal: cada compañero reemplaza el element de su ruta por su vista
 const paginaEnBlanco = <div style={{ minHeight: '60vh', background: '#faf7ef' }} />
@@ -17,7 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Inicio />} />
           <Route path="/nuestros-dulces" element={<NuestrosDulces />} />
-          <Route path="/por-encargo" element={paginaEnBlanco} />
+          <Route path="/por-encargo" element={<PorEncargo />} />
           <Route path="/nuestra-historia" element={<NuestraHistoria />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="*" element={<Navigate to="/" replace />} />
