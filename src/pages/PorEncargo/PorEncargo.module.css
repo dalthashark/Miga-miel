@@ -1,0 +1,582 @@
+.porEncargo {
+  --crema: #faf7ef;
+  --tinta: #352f2c;
+  --suave: #77716a;
+  --terracota: #a64f53;
+  --salvia: #e9eddf;
+  --dorado: #f6ecd8;
+  --borde-dorado: #e2d2b4;
+
+  width: 100%;
+  color: var(--tinta);
+  background: var(--crema);
+  font-family: Georgia, 'Times New Roman', serif;
+  text-align: left;
+}
+
+
+/* HERO CORREGIDO: Fondo rosado a pantalla completa, contenido con márgenes simétricos */
+.heroSeccion {
+  width: 100%;
+  background-color: #f1e4e2; 
+  padding: 55px clamp(24px, 5.6vw, 80px) 65px;
+  box-sizing: border-box;
+}
+
+.heroContenedorGrid {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.05fr; /* Proporción equilibrada texto/imagen */
+  align-items: center;
+  gap: clamp(40px, 5.5vw, 75px);
+}
+
+.heroContenido {
+  max-width: 520px;
+}
+
+.etiqueta {
+  margin: 0 0 20px;
+  color: var(--terracota);
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+/* Título unificado en un solo color y fuente uniforme */
+.heroTituloUnico {
+  max-width: 520px;
+  margin: 0;
+  color: var(--tinta);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(38px, 3.8vw, 58px);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+}
+
+.heroTexto {
+  max-width: 450px;
+  margin: 22px 0 24px;
+  color: var(--suave);
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.acciones {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 21px;
+}
+
+.botonHero {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 46px;
+  padding: 0 26px;
+  border-radius: 24px;
+  background: var(--terracota);
+  color: #fffaf4;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.botonHero:hover {
+  transform: translateY(-2px);
+  background: #843e42;
+}
+
+.avisoHero {
+  margin-top: 16px;
+  color: var(--suave);
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+.heroImagen {
+  position: relative;
+  width: 100%;
+}
+
+.heroFotoArco {
+  width: 100%;
+  max-width: 580px;
+  aspect-ratio: 1.05 / 1;
+  overflow: hidden;
+  border-top-right-radius: 220px;
+  background: #e8dfd1;
+  margin-left: auto;
+}
+
+.heroFotoArco img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.selloFigma {
+  position: absolute;
+  left: 66px;
+  bottom: 20px;
+  padding: 10px 18px;
+  background: #fffaf4;
+  border: 1px solid #e2d2b4;
+  color: var(--tinta);
+  font-family: Georgia, serif;
+  font-size: 13px;
+  font-style: italic;
+  box-shadow: 0 6px 16px rgba(53, 47, 44, 0.12);
+  transform: rotate(-1.5deg);
+}
+
+/* PASOS / TARJETAS */
+.pasosSeccion {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 70px clamp(24px, 7vw, 100px);
+}
+
+.encabezadoSeccion {
+  margin-bottom: 35px;
+}
+
+.encabezadoSeccion h2 {
+  margin: 0 0 10px;
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+
+.subtituloSeccion {
+  max-width: 650px;
+  color: var(--suave);
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.tarjetasPasos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.tarjetaPaso {
+  padding: 35px 28px;
+  border: 1px solid #e6e0d2;
+  border-radius: 4px;
+  background: #fffdf8;
+}
+
+.numeroPaso {
+  color: var(--terracota);
+  font-family: Georgia, serif;
+  font-size: 28px;
+}
+
+.tarjetaPaso h3 {
+  margin: 12px 0 8px;
+  font-size: 27px;
+  font-weight: 400;
+}
+
+.descripcionPaso {
+  margin: 0 0 16px;
+  color: var(--suave);
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.tarjetaPaso ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  color: var(--suave);
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.tarjetaPaso ul li::before {
+  content: "— ";
+  color: var(--terracota);
+}
+
+.notaPaso {
+  margin-top: 25px;
+  color: var(--suave);
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+/* PROCESO SALVIA */
+.procesoSalvia {
+  background: var(--salvia);
+  padding: 70px clamp(24px, 7vw, 100px);
+  margin: 40px 0;
+}
+
+.procesoContenido {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.procesoContenido h2 {
+  margin: 0 0 40px;
+  font-size: clamp(28px, 3.5vw, 47px);
+  font-weight: 400;
+}
+
+.pasosProcesoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
+}
+
+.numeroProceso {
+  display: block;
+  color: var(--terracota);
+  font-family: Georgia, serif;
+  font-size: 28px;
+  margin-bottom: 14px;
+}
+
+.pasosProcesoGrid strong {
+  display: block;
+  color: var(--tinta);
+  font-family: Georgia, serif;
+  font-size: 27px;
+  font-weight: 400;
+  margin-bottom: 13px;
+}
+
+.pasosProcesoGrid p {
+  margin: 0;
+  color: var(--suave);
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* FORMULARIO TERRACOTA (INALTERADO) */
+.formularioSeccion {
+  background-color: var(--terracota);
+  color: #ffffff;
+  padding: 80px clamp(24px, 6vw, 90px);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.formularioContenedorGrid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: clamp(40px, 5vw, 80px);
+  align-items: start;
+}
+
+.etiquetaBlanca {
+  margin: 0 0 16px;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.formularioInfo h2 {
+  margin: 0 0 18px;
+  color: #ffffff;
+  font-family: Georgia, serif;
+  font-size: clamp(32px, 3.8vw, 48px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.textoInfo {
+  margin: 0 0 30px;
+  color: rgba(255, 255, 255, 0.88);
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.75;
+  max-width: 440px;
+}
+
+.lineaDivisoria {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  margin: 30px 0;
+}
+
+.bloqueSinPrisa h3 {
+  margin: 0 0 10px;
+  color: #ffffff;
+  font-family: Georgia, serif;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.bloqueSinPrisa p {
+  margin: 0 0 14px;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.notaEjemplo {
+  display: block;
+  color: rgba(255, 255, 255, 0.65);
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+}
+
+.cajaFormulario {
+  width: 100%;
+}
+
+.formularioGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 18px;
+}
+
+.campoGrupo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.campoCompleto {
+  grid-column: 1 / -1;
+}
+
+.campoGrupo label {
+  color: rgba(255, 255, 255, 0.9);
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.campoGrupo input,
+.campoGrupo textarea {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 2px;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.campoGrupo input::placeholder,
+.campoGrupo textarea::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 12px;
+}
+
+.campoGrupo input:focus,
+.campoGrupo textarea:focus {
+  outline: none;
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.avisoAlergias {
+  margin: 6px 0 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+}
+
+.checkboxWrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.checkboxWrapper input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  cursor: pointer;
+  accent-color: var(--terracota);
+}
+
+.checkboxWrapper label {
+  color: rgba(255, 255, 255, 0.9);
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.formAccionesFlex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.botonFormulario {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 26px;
+  background: #ffffff;
+  color: var(--tinta);
+  border: none;
+  border-radius: 24px;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.botonFormulario:hover {
+  transform: translateY(-1px);
+  background: #faf7ef;
+}
+
+.notaBoton {
+  color: rgba(255, 255, 255, 0.8);
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+}
+
+.notaCampos {
+  margin: 24px 0 0;
+  color: rgba(255, 255, 255, 0.65);
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  text-align: left;
+}
+
+/* FAQ */
+.faqSeccion {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 80px clamp(24px, 7vw, 100px);
+}
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 60px;
+}
+
+.faqInfoIzquierda h2 {
+  margin: 0 0 15px;
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.faqSubtitulo {
+  margin: 0;
+  color: var(--suave);
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.faqLista {
+  display: flex;
+  flex-direction: column;
+}
+
+.faqItem {
+  border-top: 1px solid #e2d2b450;
+  padding: 24px 0;
+}
+
+.faqItem:last-child {
+  border-bottom: 1px solid #e2d2b450;
+}
+
+.faqItem h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.faqItem p {
+  margin: 0;
+  color: var(--suave);
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* ANIMACIONES DE REVELADO */
+.porEncargo [data-revelar] {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 700ms ease var(--retraso, 0ms),
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1) var(--retraso, 0ms);
+}
+
+.porEncargo [data-revelar='izquierda'] {
+  transform: translateX(-40px);
+}
+
+.porEncargo [data-revelar='derecha'] {
+  transform: translateX(40px);
+}
+
+.porEncargo [data-revelar][data-visible] {
+  opacity: 1;
+  transform: none;
+}
+
+/* MEDIA QUERIES RESPONSIVAS */
+@media (max-width: 900px) {
+  .heroContenedorGrid,
+  .formularioContenedorGrid,
+  .tarjetasPasos,
+  .pasosProcesoGrid,
+  .faqGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroSeccion {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .formularioGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .formAccionesFlex {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
