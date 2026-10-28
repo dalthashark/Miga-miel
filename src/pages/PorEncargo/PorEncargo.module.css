@@ -351,6 +351,75 @@
   width: 100%;
 }
 
+.mensajeExito {
+  padding: 36px 32px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  animation: aparecerExito 400ms ease;
+}
+
+@keyframes aparecerExito {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.iconoExito {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--terracota);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mensajeExito h3 {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.mensajeExito p {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #ffffff;
+}
+
+.botonReiniciar {
+  margin-top: 8px;
+  padding: 10px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  background: transparent;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.botonReiniciar:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #ffffff;
+}
+
 .formularioGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

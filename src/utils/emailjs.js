@@ -34,3 +34,34 @@ export async function enviarConsulta({ nombre, correo, asunto, mensaje }) {
     throw new Error(`EmailJS rechazó el envío (${response.status})`)
   }
 }
+
+export async function enviarEncargo({ nombre, correo, fecha, porciones, ocasion, sabor, idea }) {
+  const name = nombre.trim()
+  const email = correo.trim()
+  const noIndicado = (valor) => valor.trim() || 'No indicado'
+
+  const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      service_id: 'service_caow5lh',
+      template_id: 'template_5a40be9',
+      user_id: 'J3oCJGjLUw_PWUwXX',
+      template_params: {
+        nombre: name,
+        correo: email,
+        fecha: noIndicado(fecha),
+        porciones: noIndicado(porciones),
+        ocasion: noIndicado(ocasion),
+        sabor: noIndicado(sabor),
+        idea: idea.trim(),
+        reply_to: email,
+      },
+    }),
+    signal: AbortSignal.timeout(20000),
+  })
+
+  if (!response.ok) {
+    throw new Error(`EmailJS rechazó el envío (${response.status})`)
+  }
+}
