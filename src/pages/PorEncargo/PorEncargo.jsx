@@ -1,5 +1,6 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './PorEncargo.module.css'
+import { enviarEncargo } from '../../utils/emailjs.js'
 import heroEncargoImage from '../../assets/pasteles/torta-personalizada.jpg'
 
 export default function PorEncargo() {
@@ -27,9 +28,24 @@ export default function PorEncargo() {
     return () => observador.disconnect()
   }, [])
 
-  const handleSubmit = (evento) => {
+  const [estado, setEstado] = useState('inactivo')
+  const [remitente, setRemitente] = useState({ nombre: '', correo: '' })
+
+  const handleSubmit = async (evento) => {
     evento.preventDefault()
-    alert('¡Solicitud de encargo enviada con éxito! Nos pondremos en contacto pronto.')
+    if (estado === 'enviando') return
+    const formulario = evento.currentTarget
+    const campos = ['nombre', 'correo', 'fecha', 'porciones', 'ocasion', 'sabor', 'idea']
+    const datos = Object.fromEntries(campos.map((c) => [c, formulario.elements[c].value]))
+
+    setEstado('enviando')
+    try {
+      await enviarEncargo(datos)
+      setRemitente({ nombre: datos.nombre.trim(), correo: datos.correo.trim() })
+      setEstado('exito')
+    } catch {
+      setEstado('error')
+    }
   }
 
   return (
@@ -169,6 +185,23 @@ export default function PorEncargo() {
           </div>
 
           <div className={styles.cajaFormulario}>
+            {estado === 'exito' ? (
+              <div className={styles.mensajeExito} role="alert">
+                <div className={styles.iconoExito} aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                </div>
+                <h3>¡Solicitud enviada con éxito!</h3>
+                <p>
+                  Gracias, <strong>{remitente.nombre}</strong>. Recibimos tu idea y te contactaremos
+                  pronto a <em>{remitente.correo}</em> para confirmar disponibilidad y presupuesto.
+                </p>
+                <button type="button" className={styles.botonReiniciar} onClick={() => setEstado('inactivo')}>
+                  Hacer otro encargo
+                </button>
+              </div>
+            ) : (
             <form onSubmit={handleSubmit}>
               <div className={styles.formularioGrid}>
                 
@@ -220,15 +253,21 @@ export default function PorEncargo() {
                 </div>
 
                 <div className={`${styles.campoGrupo} ${styles.campoCompleto} ${styles.formAccionesFlex}`}>
-                  <button type="submit" className={styles.botonFormulario}>
-                    Enviar mi idea <span aria-hidden="true">↗</span>
+                  <button type="submit" disabled={estado === 'enviando'} className={styles.botonFormulario}>
+                    {estado === 'enviando' ? 'Enviando…' : 'Enviar mi idea'} <span aria-hidden="true">↗</span>
                   </button>
                   <span className={styles.notaBoton}>Consultar no confirma una reserva.</span>
                 </div>
 
               </div>
             </form>
-            <p className={styles.notaCampos}>* Campos necesarios - Formulario de ejemplo, sin envío de datos.</p>
+            )}
+            <div role="status" aria-live="polite">
+              {estado === 'error' && (
+                <p className={styles.notaCampos}>No pudimos enviar tu solicitud. Tus datos siguen aquí; inténtalo de nuevo en unos momentos.</p>
+              )}
+            </div>
+            <p className={styles.notaCampos}>* Campos necesarios</p>
           </div>
 
         </div>
